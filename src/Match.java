@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Match {
-	Student students [] = new Student [100];
+	static Student students [] = new Student [100];
 
 	public static void main(String[] args) {
 		Scanner get = new Scanner(System.in);
@@ -11,7 +11,7 @@ public class Match {
 		String filename = get.next();
 		try {
 			Scanner input = new Scanner ( new File(filename) );
-
+			int i = 0;
 			while(input.hasNextLine()){
 				Scanner in = new Scanner(input.nextLine());
 				in.useDelimiter("\t");
@@ -20,7 +20,8 @@ public class Match {
 				Date date = parseDate(in.next());
 				Preference pref = new Preference(in.nextInt(), in.nextInt(), 
 												 in.nextInt(), in.nextInt());
-				students  = ;
+				students[i]  = new Student (name, gender, pref, date);
+				i++;
 				
 			}
 		} catch (FileNotFoundException e) {
@@ -36,6 +37,9 @@ public class Match {
 		int year = input.nextInt();
 		input.close();
 		return new Date(year, month, day) ;
+	}
+	public void match(){
+
 	}
 
 }
